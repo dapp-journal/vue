@@ -18,9 +18,19 @@ const router = createRouter({
       component: () => import('@/views/article-view.vue')
     },
     {
+      path: '/author',
+      name: 'author',
+      component: () => import('@/views/author-view.vue')
+    },
+    {
       path: '/keyword',
       name: 'keyword',
       component: () => import('@/views/keyword-view.vue')
+    },
+    {
+      path: '/block',
+      name: 'block',
+      component: () => import('@/views/block-view.vue')
     }
   ]
 });

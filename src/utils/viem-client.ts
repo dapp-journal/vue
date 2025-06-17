@@ -30,6 +30,8 @@ const chain = defineChain({
   }
 });
 
+// const account = privateKeyToAccount(DESCI_HARDHAT_ACCOUNT);
+
 export const publicClient = DESCI_CLIENT
   ? createTestClient({
       chain: hardhat,
