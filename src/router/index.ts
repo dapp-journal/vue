@@ -12,25 +12,33 @@ const router = createRouter({
     {
       path: '/article',
       name: 'article',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import('@/views/article-view.vue')
     },
     {
-      path: '/author',
-      name: 'author',
-      component: () => import('@/views/author-view.vue')
-    },
-    {
-      path: '/keyword',
-      name: 'keyword',
-      component: () => import('@/views/keyword-view.vue')
-    },
-    {
-      path: '/block',
-      name: 'block',
-      component: () => import('@/views/block-view.vue')
+      path: '/dao',
+      name: 'dao',
+      redirect(to) {
+        console.log(to);
+        return '/dao/block';
+      },
+      component: () => import('@/views/dao/dao-layout.vue'),
+      children: [
+        {
+          path: 'author',
+          name: 'author',
+          component: () => import('@/views/dao/author-view.vue')
+        },
+        {
+          path: 'keyword',
+          name: 'keyword',
+          component: () => import('@/views/dao/keyword-view.vue')
+        },
+        {
+          path: 'block',
+          name: 'block',
+          component: () => import('@/views/dao/block-view.vue')
+        }
+      ]
     }
   ]
 });
